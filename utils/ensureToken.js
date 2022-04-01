@@ -4,6 +4,9 @@ const { User } = require('../models')
 const EnsureToken = async (req, res, next) => {
     const token = req.headers.Authorization || req.headers.authorization
     const tokenQuery = req.query
+    if (!token || !tokenQuery) {
+        return res.status(401).json({ message: 'Unauthorized User!' })
+    }
     const splitToken = token.split("Basic ")[1]
     if (splitToken !== tokenQuery.token) {
         return res.status(401).json({ message: 'Unauthorized User!' })

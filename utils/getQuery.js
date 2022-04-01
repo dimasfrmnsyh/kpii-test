@@ -117,7 +117,7 @@ const getFilterLk = async (fd, isAggregate) => {
 		] = await transformFilter(fd[i].id, fd[i].value, fd[i].type, isAggregate)
 
 		fieldValue = mongoose.Types.ObjectId.isValid(fieldValue)
-            && filterType !== 'in'
+			&& filterType !== 'in'
 			? mongoose.Types.ObjectId(fieldValue)
 			: fieldValue
 
@@ -125,7 +125,7 @@ const getFilterLk = async (fd, isAggregate) => {
 		if (filterType === 'in') {
 			const valueIn = fieldValue.split(',').map((row) => (
 				mongoose.Types.ObjectId.isValid(row)
-                && fieldName !== 'externalId'
+					&& fieldName !== 'externalId'
 					? mongoose.Types.ObjectId(row)
 					: row
 			)).filter((row) => row)
@@ -227,14 +227,13 @@ const getQuery = async (query, isAggregate = false) => {
 			sorted,
 			variety,
 		} = query
-		
+
 		page = page ? Number(page) : 0
 		pageSize = pageSize ? Number(pageSize) : 1600
 		filtered = filtered ? JSON.parse(filtered) : []
 		sorted = sorted ? JSON.parse(sorted) : []
 		const sortedLk = await getSortLk(sorted)
 		let filteredLk = await getFilterLk(filtered, isAggregate)
-		// console.log(filteredLk)
 		sorted = getSort(sorted)
 		const filter = getFilter(filtered)
 
@@ -250,7 +249,7 @@ const getQuery = async (query, isAggregate = false) => {
 			}
 		}
 
-		
+
 
 		return {
 			...query,

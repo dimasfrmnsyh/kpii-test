@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "1a1efde0-523c-4d3f-9541-203d51c5cd48",
+		"_postman_id": "9c2064a1-4d6d-4818-a319-559e90b6982a",
 		"name": "kpii test",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -39,7 +39,9 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": null
+				"url": {
+					"raw": ""
+				}
 			},
 			"response": []
 		},
@@ -56,7 +58,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"skill\": \"62468ce950094ce93a612bc7\",\n    \"title\": \"Node Js Training\",\n    \"description\": \"for everyone\",\n    \"startDate\": \"05-02-2022\",\n    \"endDate\": \"05-05-2022\",\n    \"participants\": [\"62453b28f85013a0afcac2e\"]\n}",
+					"raw": "{\n    \"skill\": \"62468ce950094ce93a612bc7\",\n    \"title\": \"test Js Training\",\n    \"description\": \"for everyone\",\n    \"startDate\": \"05-02-2022\",\n    \"endDate\": \"05-10-2022\",\n    \"participants\": [\"62453b28f85013a0afcac2e0\"]\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -128,8 +130,56 @@
 			"name": "getall activity",
 			"request": {
 				"method": "GET",
-				"header": [],
-				"url": null
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic YWRtaW46YWRtaW4xMjM=",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:5000/v1/activity?token=YWRtaW46YWRtaW4xMjM=&sorted=[{\"id\":\"createdAt\", \"desc\": true}]&pageSize=2&page=0&filtered=[{\"id\":\"startDate\",\"value\":\"12-12-2022.12-25-2022\",\"type\":\"between-date\"}]",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"v1",
+						"activity"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "YWRtaW46YWRtaW4xMjM="
+						},
+						{
+							"key": "sorted",
+							"value": "[{\"id\":\"createdAt\", \"desc\": true}]"
+						},
+						{
+							"key": "pageSize",
+							"value": "2"
+						},
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "filtered",
+							"value": "[{\"id\":\"_id\", \"value\":\"62473ac6da84f2d069393b78\", \"type\": \"equal\"}]",
+							"disabled": true
+						},
+						{
+							"key": "variety",
+							"value": "pageByDate",
+							"disabled": true
+						},
+						{
+							"key": "filtered",
+							"value": "[{\"id\":\"startDate\",\"value\":\"12-12-2022.12-25-2022\",\"type\":\"between-date\"}]"
+						}
+					]
+				}
 			},
 			"response": []
 		},
@@ -147,6 +197,54 @@
 					"path": [
 						"v1",
 						"activity"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "YWRtaW46YWRtaW4xMjM="
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all skill",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "insert skill",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic YWRtaW46YWRtaW4xMjM=",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"skillName\": \"test\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/v1/skills?token=YWRtaW46YWRtaW4xMjM=",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"v1",
+						"skills"
 					],
 					"query": [
 						{
