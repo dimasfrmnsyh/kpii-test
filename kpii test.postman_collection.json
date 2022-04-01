@@ -1,0 +1,162 @@
+{
+	"info": {
+		"_postman_id": "1a1efde0-523c-4d3f-9541-203d51c5cd48",
+		"name": "kpii test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"admin\",\n    \"password\": \"admin123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/v1/auth/login",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"v1",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "logout",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "insert activity",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic YWRtaW46YWRtaW4xMjM=",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"skill\": \"62468ce950094ce93a612bc7\",\n    \"title\": \"Node Js Training\",\n    \"description\": \"for everyone\",\n    \"startDate\": \"05-02-2022\",\n    \"endDate\": \"05-05-2022\",\n    \"participants\": [\"62453b28f85013a0afcac2e\"]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/v1/activity?token=YWRtaW46YWRtaW4xMjM=",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"v1",
+						"activity"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "YWRtaW46YWRtaW4xMjM="
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update activity",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic YWRtaW46YWRtaW4xMjM=",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"skill\": \"62468c1b7a3490e8eff2ba62\",\n    \"title\": \"Node Js Training\",\n    \"description\": \"for everyone\",\n    \"startDate\": \"05-02-2022\",\n    \"endDate\": \"05-05-2022\",\n    \"participants\": [\"62453b28f85013a0afcac2e0\",\"62453b28f85013a0afcac2e0\"]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/v1/activity/6246a596edb162ea884f51a0?token=YWRtaW46YWRtaW4xMjM=",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"v1",
+						"activity",
+						"6246a596edb162ea884f51a0"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "YWRtaW46YWRtaW4xMjM="
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getall activity",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "delete activity",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/v1/activity?token=YWRtaW46YWRtaW4xMjM=",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"v1",
+						"activity"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "YWRtaW46YWRtaW4xMjM="
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

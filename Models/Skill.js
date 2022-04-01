@@ -7,7 +7,7 @@ const mongoose = require('mongoose')
 const { Schema } = mongoose
 
 const ModelSchema = Schema({
-    skill_name: { type: String, required: true },
+    skillName: { type: String, required: true },
     deleted: { type: Boolean, default: false },
 }, {
     timestamps: true,
