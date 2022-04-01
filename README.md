@@ -1,5 +1,5 @@
 #
-before you run this app make first things that you must do its type:
+before you run this app make sure first things that you must do its type:
 npm i
 
 for login :
